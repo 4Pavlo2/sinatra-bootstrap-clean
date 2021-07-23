@@ -48,10 +48,13 @@ get '/forum' do
   end
 
   get '/details/:post_id' do
+	#get url
 	post_id = params[:post_id]
-
-	results = @db.execute 'select * from Posts where id = ?', [post_id]
+#get list\\only one post
+	
+results = @db.execute 'select * from Posts where id = ?', [post_id]
+#choise this post
 	@row = results[0]
-
+#show details erb
 	erb :details#"Displaying info for post with id #{post_id}"
   end
