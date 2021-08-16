@@ -3,10 +3,12 @@ require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
 require 'sinatra/activerecord'
+require "sinatra/activerecord"
 
 
-#set :database, { adapter: 'sqlite3', database: 'my_database.db' }
-set :database, " sqlite:barbers.db"
+set :database, { adapter: 'sqlite3', database: 'barbers.db' }
+#set :database, {adapter: "sqlite3", database: "foo.sqlite3"}
+#set :database, "sqlite:barbers.db"
 
 class Client < ActiveRecord::Base
 end
