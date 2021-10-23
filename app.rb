@@ -12,7 +12,7 @@ set :database, { adapter: 'sqlite3', database: 'barbers.db' }
 #set :database, "sqlite:barbers.db"
 
 class Client < ActiveRecord::Base
-	validates :name, presence: true 
+	validates :name, presence: true, length: { minimum: 3 }
 	validates :phone, presence: true 
 	validates :datetime, presence: true 
 	validates :color, presence: true 	
@@ -52,6 +52,11 @@ post "/visit" do # here we fetch POST request from the FORM (in index.erb)
 	end
 	
 end
+
+get "/barber/:id" do
+	erb "This is gonna be barber page, dude!"
+end
+
 
 get "/monstas" do
 	@name = params["name"]
