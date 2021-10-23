@@ -12,6 +12,10 @@ set :database, { adapter: 'sqlite3', database: 'barbers.db' }
 #set :database, "sqlite:barbers.db"
 
 class Client < ActiveRecord::Base
+	validates :name, presence: true 
+	validates :phone, presence: true 
+	validates :datetime, presence: true 
+	validates :color, presence: true 	
 end
 
 class Barber < ActiveRecord::Base
