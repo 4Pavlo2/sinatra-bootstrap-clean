@@ -44,9 +44,12 @@ end
 post "/visit" do # here we fetch POST request from the FORM (in index.erb)
 	
 	c = Client.new params[:client]
-	c.save
-
-  erb "thanks"
+	if c.save
+  erb "<h2>thanks </h2>"
+	else
+		@error = c.errors.full_messages.first
+		erb :visit
+	end
 	
 end
 
