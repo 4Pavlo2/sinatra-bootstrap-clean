@@ -40,12 +40,11 @@ get '/visit' do
 	erb :visit			
 end
 
-
 post "/visit" do # here we fetch POST request from the FORM (in index.erb)
 	
 	@c = Client.new params[:client]
 	if @c.save
-  erb "<h2>thanks </h2>"
+erb "<h2>thanks </h2>"
 	else
 		@error = @c.errors.full_messages.first
 		erb :visit
@@ -54,14 +53,26 @@ post "/visit" do # here we fetch POST request from the FORM (in index.erb)
 end
 
 get "/barber/:id" do
-	erb "This is gonna be barber page, dude!"
+@barber = Barber.find(params[:id])
+erb :barber
+end
+
+get '/bookings' do
+	@clients = Client.order('created_at DESC')
+	erb :bookings
+end
+
+get '/client/:id' do
+	@client = Client.find(params[:id])
+	erb :client
 end
 
 
+
 get "/monstas" do
-	@name = params["name"]
-	@names = read_names
-	erb :monstas
+@name = params["name"]
+@names = read_names
+erb :monstas
 end
 
 post "/monstas" do
