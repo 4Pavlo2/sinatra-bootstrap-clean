@@ -1,0 +1,27 @@
+<h2>Post details:</h2>
+<p>NAme: <%= @posts.name%> </p>
+<p>Added at: <%= @posts.updated_at%> </p>
+
+
+<h2>comments:</h2>
+<p>NAme: <%= @comments.name%> </p>
+<p>Added at: <%= <@comments.updated_at%> </p>
+
+<h2>Add New Comment</h2>
+<<% @comments.each do |comment|%>
+    <p>
+        <a href="/post/<%= comment['@comment'] %><%#"><%= comment.name %>
+    </p>
+<% end %>
+
+
+<form action="/post/<%= @row['@i']" method="POST" role="form">
+
+<div class="form-group">
+    <textarea name="comment[name]" type="text" class="form-control" rows="6" placeholder="Type post text here" value="<%= @cc.name%>" ></textarea>
+</div>
+
+<button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+

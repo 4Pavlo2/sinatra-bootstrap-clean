@@ -1,0 +1,12 @@
+<h2>Latest comments</h2>
+<<% @comments.each do |comment|%>
+    <p>
+        <a href="/post/<%= comment.id %><%#"><%= comment.name %>
+    </p>
+<% end %>
+
+<h2>comments:</h2>
+<p>NAme: <%= @comments.name%> </p>
+<p>Added at: <%= <@comments.updated_at%> </p>
+
+

@@ -1,0 +1,13 @@
+<h2>Add New Post</h2>
+
+
+<form action="/new" method="POST" role="form">
+
+<div class="form-group">
+    <textarea name="post[name]" type="text" class="form-control" rows="6" placeholder="Type post text here" value="<%= @c.name%>" ></textarea>
+</div>
+
+<button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+
